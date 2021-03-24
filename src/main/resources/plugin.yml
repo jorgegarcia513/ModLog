@@ -1,0 +1,28 @@
+name: ModLog
+version: ${project.version}
+main: com.sudo.modlog.ModLog
+api-version: 1.16
+prefix: ModLog
+authors: [ Sudo ]
+description: Logs for Mods
+commands:
+  mllookup:
+    description: Query db for username
+    usage: /<command>
+    asliases: [lookup]
+    permission: modlog.lookup
+  mlreport:
+      description: Add entry to db
+      usage: /<command>
+      aliases: [report]
+      permission: modlog.report
+  mlhelp:
+    description: Command help
+    usage: /<command>
+    aliases: [ help ]
+    permission: modlog.help
+  mlinfo:
+    description: Plugin info
+    usage: /<command>
+    aliases: [ info ]
+    permission: modlog.info
