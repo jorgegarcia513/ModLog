@@ -76,4 +76,19 @@ public class SQL {
         statement.close();
         connection.close();
     }
+
+    public void initTable() throws SQLException {
+        try {
+            openConnection();
+        } catch (ClassNotFoundException | SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+        // Insert to DB
+        Statement statement = connection.createStatement();
+        statement.executeUpdate("CREATE TABLE modlog (username TEXT, reason TEXT, action_taken TEXT, notes TEXT);");
+
+        statement.close();
+        connection.close();
+    }
 }

@@ -26,3 +26,9 @@ commands:
     usage: /<command>
     aliases: [ info ]
     permission: modlog.info
+  mlinit:
+    description: USE ONCE ONLY
+    usage: /<command>
+    aliases: [ init ]
+    permission: modlog.init
+

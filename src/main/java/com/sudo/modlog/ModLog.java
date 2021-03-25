@@ -27,6 +27,7 @@ public final class ModLog extends JavaPlugin {
         this.getCommand("mlreport").setExecutor(new CommandReport());
         this.getCommand("mlhelp").setExecutor(new CommandHelp());
         this.getCommand("mlinfo").setExecutor(new CommandInfo());
+        this.getCommand("mlinit").setExecutor(new CommandInit());
 
         this.getCommand("mllookup").setTabCompleter(new ModLogTabCompleter());
 
