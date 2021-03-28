@@ -14,7 +14,7 @@ public class CommandInit implements CommandExecutor {
         SQL sql = new SQL();
 
         try {
-            sql.initTable();
+            sql.addColumn(args[0]);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }

@@ -49,7 +49,7 @@ public class ReportMode {
             case 4:
                 vals[3] = message;
                 event.getPlayer().sendMessage(ChatColor.GOLD + "[ModLog - Report Mode] " + ChatColor.WHITE + "Sending report!");
-                sql.addRow(vals[0], vals[1],vals[2], vals[3]);
+                sql.addRow(vals[0], vals[1],vals[2], vals[3], event.getPlayer().getName());
                 event.getPlayer().sendMessage(ChatColor.GOLD + "[ModLog - Report Mode] " + ChatColor.WHITE + "Report sent successfully.");
                 map.remove(name);
                 break;

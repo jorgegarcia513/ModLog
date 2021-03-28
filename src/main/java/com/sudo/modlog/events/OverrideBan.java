@@ -32,7 +32,7 @@ public class OverrideBan implements Listener {
 
         if (event.getMessage().charAt(0) == '/') {
             try {
-                sql.addRow(username, "Ban", reason.toString(), "PlaceHolder");
+                sql.addRow(username, "Ban", reason.toString(), "PlaceHolder", sender.getName());
                 sender.sendMessage(ChatColor.GOLD + "[ModLog] " + ChatColor.WHITE + "Banned " + username + " and a report was submitted.");
             } catch (SQLException throwables) {
                 throwables.printStackTrace();

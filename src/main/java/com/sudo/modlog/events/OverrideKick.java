@@ -37,7 +37,7 @@ public class OverrideKick implements Listener {
 
         if (event.getMessage().charAt(0) == '/') {
             try {
-                sql.addRow(username, "Kick", reason.toString(), "PlaceHolder");
+                sql.addRow(username, "Kick", reason.toString(), "PlaceHolder", sender.getName());
                 sender.sendMessage(ChatColor.GOLD + "[ModLog] " + ChatColor.WHITE + "Kicked " + username + " and a report was submitted.");
             } catch (SQLException throwables) {
                 throwables.printStackTrace();

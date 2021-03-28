@@ -6,7 +6,7 @@
 
     <groupId>com.sudo</groupId>
     <artifactId>ModLog</artifactId>
-    <version>0.1</version>
+    <version>0.2</version>
     <packaging>jar</packaging>
 
     <name>ModLog</name>

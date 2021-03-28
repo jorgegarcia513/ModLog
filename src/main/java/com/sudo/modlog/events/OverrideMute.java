@@ -38,7 +38,7 @@ public class OverrideMute implements Listener {
 
         if (event.getMessage().charAt(0) == '/') {
             try {
-                sql.addRow(username, "Mute", reason.toString(), length);
+                sql.addRow(username, "Mute", reason.toString(), length, sender.getName());
                 sender.sendMessage(ChatColor.GOLD + "[ModLog] " + ChatColor.WHITE + "Muted " + username + " and a report was submitted.");
             } catch (SQLException throwables) {
                 throwables.printStackTrace();

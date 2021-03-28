@@ -34,7 +34,7 @@ public class OverrideTempBan implements Listener {
 
         if (event.getMessage().charAt(0) == '/') {
             try {
-                sql.addRow(username, "Temp Ban", reason.toString(), length);
+                sql.addRow(username, "Temp Ban", reason.toString(), length, sender.getName());
                 sender.sendMessage(ChatColor.GOLD + "[ModLog] " + ChatColor.WHITE + "Temporarily banned " + username + " and a report was submitted.");
             } catch (SQLException throwables) {
                 throwables.printStackTrace();

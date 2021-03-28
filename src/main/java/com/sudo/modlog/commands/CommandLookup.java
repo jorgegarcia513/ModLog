@@ -32,11 +32,19 @@ public class CommandLookup implements CommandExecutor {
                 return true;
             }
 
-            f.format("%-17s %-25s %s\n", ChatColor.GRAY + "Action", ChatColor.GRAY + "Reason", ChatColor.GRAY + "Notes" + ChatColor.WHITE);
+            //f.format("&cAction: &f%s &cReason&f%s &cNotes/Length%s &aStaff&f%s\n", ChatColor.GRAY + "Action", ChatColor.GRAY + "Reason", ChatColor.GRAY + "Notes" + ChatColor.WHITE);
             sender.sendMessage(ChatColor.GOLD + "[ModLog] Listing " + master.size() + " entry(s) for: " + ChatColor.GREEN + master.get(0).get(0));
-
+            f.format(ChatColor.GRAY + "-----------------------------------------------\n");
             master.forEach(list -> {
-                f.format("%-15s %-24s %s\n", list.get(2), list.get(1), list.get(3));
+                if (list.size() <= 4) {
+                    f.format(ChatColor.RED + "Action Taken: " + ChatColor.WHITE + "%s \n" + ChatColor.RED + "Reason: " + ChatColor.WHITE
+                            + "%s \n" + ChatColor.RED + "Notes/Length: " + ChatColor.WHITE + "%s \n" + ChatColor.RED + "Reporting Staff: " + ChatColor.WHITE + "%s\n", list.get(2), list.get(1), list.get(3), "");
+                }
+                else {
+                    f.format(ChatColor.RED + "Action Taken: " + ChatColor.WHITE + "%s \n" + ChatColor.RED + "Reason: " + ChatColor.WHITE
+                            + "%s \n" + ChatColor.RED + "Notes/Length: " + ChatColor.WHITE + "%s \n" + ChatColor.RED + "Reporting Staff: " + ChatColor.WHITE + "%s\n", list.get(2), list.get(1), list.get(3), list.get(4));
+                }
+                f.format(ChatColor.GRAY + "-----------------------------------------------\n");
             });
 
             sender.sendMessage(f.toString());

@@ -51,6 +51,7 @@ public class SQL {
             vals.add(result.getString("reason"));
             vals.add(result.getString("action_taken"));
             vals.add(result.getString("notes"));
+            vals.add(result.getString("staff"));
             master.add(vals);
         }
 
@@ -61,7 +62,7 @@ public class SQL {
         return master;
     }
 
-    public void addRow(String username, String action, String reason, String notes) throws SQLException {
+    public void addRow(String username, String action, String reason, String notes, String staff) throws SQLException {
         // Open the connection
         try {
             openConnection();
@@ -71,7 +72,7 @@ public class SQL {
 
         // Insert to DB
         Statement statement = connection.createStatement();
-        statement.executeUpdate("INSERT INTO " + database + "." + table + " VALUES ('" + username + "', '" + reason + "', '" + action + "', '" + notes + "');");
+        statement.executeUpdate("INSERT INTO " + database + "." + table + " VALUES ('" + username + "', '" + reason + "', '" + action + "', '" + notes + "', '" + staff + "');");
 
         statement.close();
         connection.close();
@@ -91,4 +92,20 @@ public class SQL {
         statement.close();
         connection.close();
     }
+
+    public void addColumn(String colName) throws SQLException {
+        try {
+            openConnection();
+        } catch (ClassNotFoundException | SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+        // Insert to DB
+        Statement statement = connection.createStatement();
+        statement.executeUpdate("ALTER TABLE " + database + "." + table + " ADD " + colName + " TEXT;");
+
+        statement.close();
+        connection.close();
+    }
+
 }
